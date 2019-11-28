@@ -1,0 +1,27 @@
+class Solution {
+    private int[] nums;
+    
+    public Solution(int[] nums) {
+        this.nums = new int[nums.length];
+        for(int i=0; i<nums.length; i++) {
+            this.nums[i] = nums[i];
+        }
+    }
+    
+    /** Resets the array to its original configuration and return it. */
+    public int[] reset() {
+        return nums;
+    }
+    
+    /** Returns a random shuffling of the array. */
+    public int[] shuffle() {
+        int[] ret = new int[this.nums.length];
+        for(int i=0; i<nums.length; i++) {
+            int rand = new Random().nextInt(i+1);
+            
+            ret[i] = ret[rand];
+            ret[rand] = nums[i];
+        }
+        return ret;
+    }
+}
